@@ -1,0 +1,308 @@
+/* body and general styling */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f0f2f5;
+  color: #333;
+}
+
+/* Main application container */
+.App {
+  text-align: center;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  /* Flexbox for centering all child elements */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header styling */
+.App-header {
+  background-color: #127498;
+  padding: 30px 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  color: white;
+  box-shadow: 0 2px 10px rgba(0, 123, 255, 0.3);
+  /* Override default margin to ensure it aligns with other centered content */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 2.5em;
+  font-weight: 700;
+}
+
+.App-header p {
+  font-size: 1.1em;
+  opacity: 0.9;
+}
+
+/* General card styling */
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  width: 100%; /* Ensure cards fill the available space */
+  box-sizing: border-box;
+}
+
+/* NAS Method Selector */
+.nas-method-selector {
+  text-align: center;
+}
+
+.nas-method-selector h2 {
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: flex-start;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.radio-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.radio-label:hover {
+  border-color: #007bff;
+  background-color: #f8f9fa;
+}
+
+.radio-label input[type="radio"] {
+  margin-top: 3px;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
+.radio-label input[type="radio"]:checked + span {
+  color: #007bff;
+  font-weight: 600;
+}
+
+.radio-label span {
+  font-size: 1.1em;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.method-description {
+  display: block;
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 5px;
+}
+
+/* Upload section specific styling */
+.upload-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.file-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.upload-button {
+  padding: 12px 25px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+}
+
+.upload-button:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+.upload-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Loading spinner */
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #007bff;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+  margin-top: 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Message styling (error/success) */
+.message {
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  white-space: pre-line; /* Preserve line breaks */
+  text-align: left;
+}
+
+/* Image preview section */
+.image-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.uploaded-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 350px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  margin-top: 15px;
+}
+
+/* Results section */
+.results-section h2, .results-section h3 {
+  color: #007bff;
+  margin-top: 0;
+}
+
+.model-info-banner {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.model-info-banner h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.3em;
+  color: white;
+}
+
+.model-info-banner p {
+  margin: 5px 0;
+  opacity: 0.95;
+  font-size: 0.95em;
+}
+
+.highlight-text {
+  font-weight: bold;
+  color: #28a745;
+}
+
+.probabilities-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.probabilities-list li {
+  margin-bottom: 5px;
+  padding: 5px 0;
+  border-bottom: 1px dashed #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.probabilities-list li:last-child {
+  border-bottom: none;
+}
+
+.diagnostic-report {
+  background-color: #e9f7ef;
+  border: 1px solid #d4edda;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-style: italic;
+  color: #155724;
+  line-height: 1.6;
+}
+
+/* Footer */
+.App-footer {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #e2e6ea;
+  border-radius: 10px;
+  color: #555;
+  font-size: 0.9em;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .App {
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+  .App-header h1 {
+    font-size: 2em;
+  }
+
+  .upload-button {
+    font-size: 1em;
+    padding: 10px 20px;
+  }
+}

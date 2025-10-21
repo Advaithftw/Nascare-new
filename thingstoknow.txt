@@ -1,0 +1,54 @@
+to start fastapi server: python -m uvicorn backend.main:app --port 8001 --reload
+
+IMPORTANT: Run this from the PROJECT ROOT directory (C:\Users\sakth\Documents\Projects\mednas)
+NOT from the backend directory!
+for now using the_nas_model.pth 
+
+
+What it does: This is the core building block of CNNs. It learns to detect features by sliding small windows (kernels/filters) over the input image (or previous layer's output).
+
+filters (or out_channels): This is the number of distinct feature detectors (kernels) that the layer will learn.
+
+Imagine you have 128 different "magnifying glasses," each trained to spot a specific pattern (e.g., a horizontal line, a diagonal edge, a specific texture, a circular shape).
+
+Each filter produces one "feature map" (an output image that highlights where that specific feature was found). So, if a layer has 128 filters, it will output 128 feature maps.
+
+Your layers have 128, 32, 32, 16, 32, 128 filters. This means the first layer learns 128 distinct patterns, the second learns 32, and so on. The number of filters often increases in deeper layers to capture more complex features, or decreases to summarize information.
+
+kernel_size: This defines the dimensions of each filter/feature detector. It's the size of the small window that slides over the input.
+
+A kernel_size: 2 means a 2
+times2 pixel window.
+
+A kernel_size: 5 means a 5
+times5 pixel window.
+
+Smaller kernels (like 2
+times2) are good for detecting fine-grained, local features. Larger kernels (like 5
+times5) can capture broader, more global patterns.
+
+Your layers use 2
+times2 and 5
+times5 kernels.
+
+padding=kernel_size//2: This adds extra "dummy" pixels around the border of the input. It's used to prevent the output feature map from shrinking too much after convolution, helping to preserve spatial information.
+
+nn.BatchNorm2d (Batch Normalization)
+
+What it does: After the convolutional operation, this layer normalizes the activations (outputs) of the previous layer. It essentially scales and shifts the values so they have a mean of 0 and a standard deviation of 1.
+
+Why it's used: It helps stabilize and speed up the training process by preventing internal covariate shift (where the distribution of layer inputs changes during training). It also has a slight regularizing effect, reducing overfitting.
+
+activation (Activation Function)
+
+What it does: These functions introduce non-linearity into the network. Without them, a neural network would only be able to learn linear relationships, which are insufficient for complex tasks like image recognition.
+
+relu (Rectified Linear Unit - nn.ReLU()): A very common activation. It outputs the input directly if it's positive, otherwise it outputs zero. It's computationally efficient.
+
+leakyrelu (Leaky Rectified Linear Unit - nn.LeakyReLU()): A variation of ReLU that allows a small, non-zero gradient when the input is negative. This can sometimes help prevent "dying ReLUs" (neurons that stop learning).
+
+Your layers use a mix of relu and leakyrelu.
+
+pooling layer-use to downsample feature maps keeping the important parts and discarding the rest
+reducing overfitting,so calculations can be sped up in following layer
+reduced spatial size

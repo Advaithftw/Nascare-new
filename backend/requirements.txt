@@ -1,0 +1,8 @@
+fastapi==0.111.0
+uvicorn==0.30.1
+python-multipart==0.0.9
+torch==2.3.1 # Or the version you used for training
+torchvision==0.18.1 # Or the version you used for training
+Pillow==10.3.0
+google-generativeai==0.7.0
+numpy==1.26.4

@@ -1,0 +1,77 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# Model files (too large for git)
+*.pth
+*.pt
+*.h5
+*.ckpt
+
+# Dataset files
+*.npz
+Training/
+Testing/
+*.jpg
+*.jpeg
+*.png
+*.mat
+
+# Logs
+*.log
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+*.lnk
+
+# Node modules
+node_modules/
+frontend/node_modules/
+
+# Build outputs
+frontend/dist/
+frontend/build/
+
+# Environment variables
+.env
+.env.local
+
+# Temporary files
+*.tmp
+*.temp
+debug_*.py
+test_*.py
+inspect_*.py
+compare_*.py
+setup_*.py
+load_*.py
+
+# Documentation markdown (keep only main README)
+ADDING_*.md
+HOW_TO_*.md
+IMPLEMENTATION_*.md
+MULTI_MODEL_*.md
+TESTING_*.md
+WHAT_I_*.md
+GITHUB_MODEL_*.md
