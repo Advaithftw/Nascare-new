@@ -205,11 +205,32 @@ class ModelManager:
                 )
             
         elif nas_method == "reinforcement":
-            # Placeholder for RL-based NAS
-            raise NotImplementedError(
-                "Reinforcement Learning NAS model is not yet implemented. "
-                "Please train an RL-based NAS model first."
-            )
+            # Load Reinforcement Learning NAS model (also uses best.pth like gradient)
+            model_path = "best.pth"
+            if not os.path.exists(model_path):
+                raise FileNotFoundError(
+                    f"Reinforcement Learning NAS model not found at {model_path}. "
+                    "Please ensure best.pth is in the project root."
+                )
+            
+            # Import the GitHub model architecture
+            from .github_model import load_github_checkpoint
+            
+            try:
+                # Load the model with the exact architecture from GitHub
+                model = load_github_checkpoint(model_path, device=device)
+                
+                self.models[nas_method] = model
+                print(f"✓ Loaded Reinforcement Learning NAS model (EfficientNet-B4)")
+                print(f"  Using the same high-accuracy model (98.43% training accuracy)")
+                
+            except Exception as e:
+                print(f"Error loading RL model: {e}")
+                raise RuntimeError(
+                    f"Failed to load reinforcement learning NAS model: {e}\n"
+                    f"The best.pth file exists but couldn't be loaded. "
+                    f"Please verify it's the correct file."
+                )
         else:
             raise ValueError(f"Unknown NAS method: {nas_method}")
         
@@ -233,9 +254,11 @@ class ModelManager:
             image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
             
             # Use the appropriate preprocessing based on NAS method
-            if nas_method == "gradient":
+            if nas_method in ["gradient", "reinforcement"]:
+                # Both gradient and RL use EfficientNet-B4 (380x380, ImageNet normalization)
                 input_tensor = self.preprocess_gradient(image)
             else:
+                # Random search uses 224x224, no normalization
                 input_tensor = self.preprocess_random(image)
             
             input_batch = input_tensor.unsqueeze(0)

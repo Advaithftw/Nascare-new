@@ -1,74 +1,111 @@
-/* body and general styling */
+/* Gothic Noir body styling */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f0f2f5;
-  color: #333;
+  background: linear-gradient(135deg, #000000 0%, #5C4E4E 100%);
+  min-height: 100vh;
+  color: #D1D0D0;
 }
 
-/* Main application container */
+/* Main application container - Gothic Noir */
 .App {
   text-align: center;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 40px auto;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  /* Flexbox for centering all child elements */
+  padding: 0;
+  background: linear-gradient(145deg, #D1D0D0 0%, #F5F5F5 100%);
+  backdrop-filter: blur(10px);
+  border-radius: 2px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-/* Header styling */
+/* Header styling - Gothic Noir */
 .App-header {
-  background-color: #127498;
-  padding: 30px 20px;
-  border-radius: 10px;
-  margin-bottom: 30px;
-  color: white;
-  box-shadow: 0 2px 10px rgba(0, 123, 255, 0.3);
-  /* Override default margin to ensure it aligns with other centered content */
+  background: #000000;
+  padding: 60px 40px;
+  margin: 0;
+  color: #D1D0D0;
   width: 100%;
   box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 3px solid #988686;
+}
+
+.App-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(152, 134, 134, 0.1), transparent);
+  opacity: 0.5;
 }
 
 .App-header h1 {
-  margin: 0;
-  font-size: 2.5em;
-  font-weight: 700;
+  margin: 0 0 15px 0;
+  font-size: 3em;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+  color: #D1D0D0;
 }
 
 .App-header p {
   font-size: 1.1em;
-  opacity: 0.9;
+  opacity: 0.8;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+  position: relative;
+  font-weight: 300;
+  color: #988686;
 }
 
-/* General card styling */
+/* General card styling - Gothic Noir */
 .card {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 25px;
-  margin-bottom: 25px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  background: #D1D0D0;
+  border-radius: 0;
+  padding: 35px;
+  margin: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   text-align: left;
-  width: 100%; /* Ensure cards fill the available space */
+  width: calc(100% - 60px);
   box-sizing: border-box;
+  border: 1px solid #988686;
+  transition: all 0.3s ease;
 }
 
-/* NAS Method Selector */
+.card:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+  border-color: #5C4E4E;
+}
+
+/* NAS Method Selector - Gothic Noir */
 .nas-method-selector {
   text-align: center;
 }
 
 .nas-method-selector h2 {
-  color: #007bff;
-  margin-bottom: 20px;
+  color: #000000;
+  font-size: 1.8em;
+  font-weight: 300;
+  margin-bottom: 30px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #988686;
+  padding-bottom: 15px;
 }
 
 .radio-group {
@@ -83,19 +120,39 @@ body {
 .radio-label {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
+  gap: 15px;
   cursor: pointer;
-  padding: 15px;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid #988686;
+  border-radius: 0;
   transition: all 0.3s ease;
   width: 100%;
   box-sizing: border-box;
+  background: #F5F5F5;
+  position: relative;
+  overflow: hidden;
+}
+
+.radio-label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #000000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .radio-label:hover {
-  border-color: #007bff;
-  background-color: #f8f9fa;
+  background: #D1D0D0;
+  border-color: #5C4E4E;
+  transform: translateX(2px);
+}
+
+.radio-label:hover::before {
+  opacity: 1;
 }
 
 .radio-label input[type="radio"] {
@@ -105,23 +162,48 @@ body {
   height: 18px;
 }
 
+.radio-label input[type="radio"] {
+  accent-color: #000000;
+  position: relative;
+  z-index: 1;
+}
+
+.radio-label input[type="radio"]:checked ~ * {
+  position: relative;
+  z-index: 1;
+}
+
+.radio-label:has(input[type="radio"]:checked) {
+  border-color: #000000;
+  background: #988686;
+  border-width: 2px;
+}
+
+.radio-label:has(input[type="radio"]:checked)::before {
+  opacity: 1;
+}
+
 .radio-label input[type="radio"]:checked + span {
-  color: #007bff;
+  color: #000000;
   font-weight: 600;
 }
 
 .radio-label span {
   font-size: 1.1em;
-  font-weight: 500;
+  font-weight: 400;
   display: block;
   margin-bottom: 5px;
+  position: relative;
+  z-index: 1;
+  color: #000000;
 }
 
 .method-description {
   display: block;
   font-size: 0.9em;
-  color: #666;
+  color: #5C4E4E;
   margin-top: 5px;
+  font-weight: 300;
 }
 
 /* Upload section specific styling */
@@ -134,46 +216,85 @@ body {
 }
 
 .file-input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 15px 20px;
+  border: 2px solid #988686;
+  border-radius: 0;
   width: 100%;
   box-sizing: border-box;
+  background: #F5F5F5;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1em;
+  color: #000000;
+}
+
+.file-input:hover {
+  border-color: #5C4E4E;
+  background: #D1D0D0;
 }
 
 .upload-button {
-  padding: 12px 25px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 5px;
+  padding: 18px 40px;
+  background: #000000;
+  color: #D1D0D0;
+  border: 2px solid #988686;
+  border-radius: 0;
   cursor: pointer;
-  font-size: 1.1em;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
+  font-size: 1em;
+  font-weight: 400;
+  transition: all 0.3s ease;
   width: 100%;
-  max-width: 300px;
+  max-width: 350px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+.upload-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #5C4E4E;
+  transition: width 0.3s ease;
+  z-index: 0;
+}
+
+.upload-button:hover:not(:disabled)::before {
+  width: 100%;
 }
 
 .upload-button:hover:not(:disabled) {
-  background-color: #218838;
+  color: #D1D0D0;
+  border-color: #5C4E4E;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.7);
+}
+
+.upload-button span {
+  position: relative;
+  z-index: 1;
 }
 
 .upload-button:disabled {
-  background-color: #cccccc;
+  background: #988686;
   cursor: not-allowed;
-  opacity: 0.7;
+  opacity: 0.5;
+  box-shadow: none;
 }
 
-/* Loading spinner */
+/* Loading spinner - Gothic Noir */
 .spinner {
-  border: 4px solid rgba(0, 0, 0, 0.1);
-  border-left-color: #007bff;
+  border: 4px solid #D1D0D0;
+  border-top-color: #000000;
   border-radius: 50%;
-  width: 24px;
-  height: 24px;
+  width: 40px;
+  height: 40px;
   animation: spin 1s linear infinite;
-  margin-top: 10px;
+  margin: 20px auto;
 }
 
 @keyframes spin {
@@ -192,11 +313,13 @@ body {
 }
 
 .error-message {
-  background-color: #f8d7da;
-  color: #721c24;
-  border: 1px solid #f5c6cb;
-  white-space: pre-line; /* Preserve line breaks */
+  background: #988686;
+  color: #000000;
+  border: 2px solid #5C4E4E;
+  white-space: pre-line;
   text-align: left;
+  border-radius: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 /* Image preview section */
@@ -210,42 +333,87 @@ body {
 .uploaded-image {
   max-width: 100%;
   height: auto;
-  max-height: 350px;
-  border-radius: 8px;
-  border: 1px solid #eee;
-  margin-top: 15px;
+  max-height: 450px;
+  border-radius: 0;
+  border: 2px solid #000000;
+  margin-top: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s ease;
 }
 
-/* Results section */
+.uploaded-image:hover {
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.8);
+}
+
+/* Results section - Gothic Noir */
 .results-section h2, .results-section h3 {
-  color: #007bff;
+  color: #000000;
   margin-top: 0;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #988686;
+  padding-bottom: 10px;
+}
+
+.results-section h2 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+}
+
+.results-section h3 {
+  font-size: 1.3em;
+  margin-top: 25px;
 }
 
 .model-info-banner {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 25px;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  background: #000000;
+  color: #D1D0D0;
+  padding: 30px;
+  border-radius: 0;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+  border: 1px solid #988686;
+  position: relative;
+  overflow: hidden;
+}
+
+.model-info-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent, rgba(152, 134, 134, 0.1), transparent);
+  opacity: 0.3;
 }
 
 .model-info-banner h3 {
-  margin: 0 0 10px 0;
-  font-size: 1.3em;
-  color: white;
+  margin: 0 0 15px 0;
+  font-size: 1.4em;
+  color: #D1D0D0;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
 }
 
 .model-info-banner p {
-  margin: 5px 0;
-  opacity: 0.95;
+  margin: 8px 0;
+  opacity: 0.8;
   font-size: 0.95em;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+  color: #988686;
 }
 
 .highlight-text {
-  font-weight: bold;
-  color: #28a745;
+  font-weight: 600;
+  color: #100f0f;
+  font-size: 1.1em;
 }
 
 .probabilities-list {
@@ -255,39 +423,55 @@ body {
 }
 
 .probabilities-list li {
-  margin-bottom: 5px;
-  padding: 5px 0;
-  border-bottom: 1px dashed #eee;
+  margin-bottom: 10px;
+  padding: 15px 20px;
+  border-radius: 0;
+  background: #F5F5F5;
+  border-left: 3px solid #000000;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: all 0.3s ease;
+  color: #000000;
+}
+
+.probabilities-list li:hover {
+  background: #D1D0D0;
+  border-left-color: #5C4E4E;
 }
 
 .probabilities-list li:last-child {
-  border-bottom: none;
+  margin-bottom: 0;
 }
 
 .diagnostic-report {
-  background-color: #e9f7ef;
-  border: 1px solid #d4edda;
-  padding: 20px;
-  border-radius: 8px;
-  margin-top: 20px;
-  font-style: italic;
-  color: #155724;
-  line-height: 1.6;
+  background: #F5F5F5;
+  border: 2px solid #988686;
+  padding: 30px;
+  border-radius: 0;
+  margin-top: 25px;
+  color: #000000;
+  line-height: 1.8;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
 }
 
-/* Footer */
+/* Footer - Gothic Noir */
 .App-footer {
-  margin-top: 40px;
-  padding: 20px;
-  background-color: #e2e6ea;
-  border-radius: 10px;
-  color: #555;
+  margin: 0;
+  padding: 40px;
+  background: #000000;
+  color: #988686;
   font-size: 0.9em;
   width: 100%;
   box-sizing: border-box;
+  border-top: 3px solid #988686;
+}
+
+.App-footer p {
+  margin: 8px 0;
+  opacity: 0.9;
+  font-weight: 300;
 }
 
 /* Responsive adjustments */

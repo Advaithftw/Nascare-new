@@ -96,25 +96,12 @@ def load_github_checkpoint(checkpoint_path, num_classes=4, n_nodes=256, dropout=
         # Load the state_dict
         model.load_state_dict(new_state_dict)
         
-        # IMPORTANT: Keep model in TRAINING mode for BatchNorm to work correctly
-        # The checkpoint's running_mean/running_var cause extreme logits in eval mode
-        # In train mode, BatchNorm uses batch statistics which gives better predictions
-        # Note: This may cause slight variability in predictions with batch_size=1
-        model.train()
+        # Set to eval mode by default
+        # Note: If you get poor results in eval mode, you may need to use train mode
+        # for BatchNorm layers due to running statistics issues
+        model.eval()
         
-        # Disable dropout for inference (keep it deterministic)
-        for module in model.modules():
-            if isinstance(module, torch.nn.Dropout):
-                module.eval()
-        
-        # Get additional checkpoint info
-        epoch = checkpoint.get('epoch', 'N/A')
-        accuracy = checkpoint.get('best_eva_accuracy', 0) * 100  # Convert to percentage
-        
-        print(f"✓ Loaded GitHub model (EfficientNet-B4)")
-        print(f"  Epoch: {epoch}")
-        print(f"  Accuracy: {accuracy:.2f}%")
-        print(f"  Hidden nodes: {n_nodes}, Dropout: {dropout}")
+        print(f"✓ Loaded model checkpoint")
     else:
         raise ValueError("Unexpected checkpoint format - missing 'model' key")
     

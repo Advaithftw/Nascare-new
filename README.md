@@ -89,10 +89,11 @@ Uses EfficientNet-B4 architecture with custom classifier:
 - **Accuracy**: 98.43%
 
 ### 3. Reinforcement Learning NAS (`rltraining.py`)
-Uses RL agent to learn optimal architectures:
-- **Agent**: Policy-based architecture selector
-- **Reward**: Validation accuracy
-- **Search space**: Flexible architecture configurations
+Uses RL agent to learn optimal architectures. Currently using the same EfficientNet-B4 model:
+- **Architecture**: Same as Gradient-Based NAS (EfficientNet-B4)
+- **Image size**: 380×380
+- **Normalization**: ImageNet (mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+- **Accuracy**: 98.43% (training)
 
 ## 🎨 Frontend Features
 

@@ -96,7 +96,7 @@ class NASModel(nn.Module):
     def __init__(self, architecture, num_classes):
         super(NASModel, self).__init__()
         conv_layers = []
-        in_channels = 3  # RGB input
+        in_channels = 3  
         for conv_spec in architecture['conv_layers']:
             out_channels = conv_spec['filters']
             kernel_size = conv_spec['kernel_size']

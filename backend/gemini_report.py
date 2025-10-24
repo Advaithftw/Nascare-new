@@ -14,20 +14,14 @@ async def generate_diagnostic_report(prediction_result: str, confidence: float, 
     Returns:
         str: The AI-generated diagnostic report text.
     """
-    # Configure Gemini API key from environment variable
-    # IMPORTANT: Never hardcode your API key directly in code for production.
-    # Use environment variables for security.
-    api_key = os.getenv("GOOGLE_API_KEY")
-    if not api_key:
-        print("GOOGLE_API_KEY environment variable not set. Gemini report generation will fail.")
-        return "Error: Gemini API key not configured. Cannot generate diagnostic report."
+    # Configure Gemini API key
+    api_key = os.getenv("GOOGLE_API_KEY", "AIzaSyAi5XRFXzDRsIxQl9fAblWhwc-NRkcRx5Y")
     
     genai.configure(api_key=api_key)
 
     try:
-        # --- CORRECTED LINE ---
-        # Using 'gemini-1.5-flash-latest' as it's generally more stable and widely available
-        model = genai.GenerativeModel('gemini-1.5-flash-latest') 
+        # Use gemini-flash-latest as it's available and stable
+        model = genai.GenerativeModel('gemini-flash-latest') 
 
         # Construct a clear and constrained prompt for Gemini
         prompt = f"""

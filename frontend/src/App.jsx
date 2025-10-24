@@ -90,12 +90,12 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>🧠 Brain Tumor Classifier</h1>
+        <h1>Brain Tumor Classifier</h1>
         <p>Upload an MRI scan to get an AI-powered preliminary analysis and diagnostic-style report.</p>
       </header>
 
       <div className="nas-method-selector card">
-        <h2>🔍 Select NAS Search Method:</h2>
+        <h2>Select NAS Search Method</h2>
         <div className="radio-group">
           <label className="radio-label">
             <input
@@ -105,7 +105,7 @@ function App() {
               onChange={(e) => setNasMethod(e.target.value)}
             />
             <span>Random Search NAS</span>
-            <small className="method-description">Explores architectures randomly (60% accuracy)</small>
+            <small className="method-description">Explores architectures randomly</small>
           </label>
           
           <label className="radio-label">
@@ -116,7 +116,7 @@ function App() {
               onChange={(e) => setNasMethod(e.target.value)}
             />
             <span>Gradient-Based NAS</span>
-            <small className="method-description">Uses gradient descent optimization (98% accuracy)</small>
+            <small className="method-description">Uses gradient descent optimization</small>
           </label>
           
           <label className="radio-label">
@@ -127,7 +127,7 @@ function App() {
               onChange={(e) => setNasMethod(e.target.value)}
             />
             <span>Reinforcement Learning NAS</span>
-            <small className="method-description">Agent-based architecture search (Coming soon)</small>
+            <small className="method-description">Agent-based architecture search</small>
           </label>
         </div>
       </div>
@@ -135,7 +135,7 @@ function App() {
       <div className="upload-section card">
         <input type="file" accept="image/*" onChange={handleFileChange} className="file-input" />
         <button onClick={handleUpload} disabled={!selectedFile || loading} className="upload-button">
-          {loading ? 'Analyzing...' : 'Analyze MRI Image'}
+          <span>{loading ? 'Analyzing...' : 'Analyze MRI Image'}</span>
         </button>
         {loading && <div className="spinner"></div>} 
       </div>
@@ -152,13 +152,12 @@ function App() {
       {predictionResult && (
         <div className="results-section card">
           <div className="model-info-banner">
-            <h3>🤖 Model Used: {predictionResult.model_info?.name || nasMethod.toUpperCase()}</h3>
+            <h3>Model: {predictionResult.model_info?.name || nasMethod.toUpperCase()}</h3>
             <p>{predictionResult.model_info?.description}</p>
             <p><strong>Architecture:</strong> {predictionResult.model_info?.architecture}</p>
-            <p><strong>Reported Accuracy:</strong> {predictionResult.model_info?.reported_accuracy}</p>
           </div>
           
-          <h2>📊 Prediction Results:</h2>
+          <h2>Prediction Results</h2>
           <p><strong>Predicted Tumor Type:</strong> <span className="highlight-text">{predictionResult.predicted_class.replace('_', ' ').toUpperCase()}</span></p>
           <p><strong>Confidence:</strong> <span className="highlight-text">{predictionResult.confidence}</span></p>
 
@@ -171,7 +170,7 @@ function App() {
             ))}
           </ul>
 
-          <h2>📄 AI-Generated Diagnostic Report:</h2>
+          <h2>AI-Generated Diagnostic Report</h2>
           <div className="diagnostic-report">
             <p>{predictionResult.diagnostic_report}</p>
           </div>
