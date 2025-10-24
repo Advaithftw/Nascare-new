@@ -30,6 +30,11 @@ Testing/
 *.png
 *.mat
 
+# Allow performance graphs
+!performance_graphs/*.jpg
+!performance_graphs/*.jpeg
+!performance_graphs/*.png
+
 # Logs
 *.log
 
